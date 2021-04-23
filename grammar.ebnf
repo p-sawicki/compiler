@@ -1,0 +1,41 @@
+program = { variable_definition | function } , main_function , { variable_definition | function } ;
+main_function = "fun" , "main" , ":" , "int" , "(" , ")" , function_block ;
+function = "fun" , identifier , ":" , type , "(" , argument_list , ")" , function_block ;
+function_block = "{" , { statement } , return_statement , "}" ;
+argument_list = [ identifier , ":" , type , { "," , identifier , ":" , type } ] ;
+function_call = identifier , "(" , parameter_list , ")" ;
+parameter_list = [ expression , { "," , expression } ] ;
+
+variable_definition = type , assignment ;
+assignment = identifier , "=" , expression , ";" ;
+expression = term , { ( "+" | "-" ) , term } ;
+term = factor , { ( "*" | "/" ) , factor } ;
+factor = [ "+" | "-" ] , unary ;
+unary = bracketed | number | identifier | function_call | abs ;
+bracketed = "(" , expression , ")" ;
+abs = "|" , expression , "|" ;
+
+conditional_expression = conjunction , { "or" , conjunction } ;
+conjunction = negation , { "and" , negation } ;
+negation = [ "not" ] , bracketed_conditional ;
+bracketed_conditional = ( "(" , conditional_expression , ")" ) | relation ;
+relation = expression , relational_operator , expression ;
+
+if_statement = "if" , conditional_block ;
+while_statement = "while" , conditional_block ;
+conditional_block = "(" , conditional_expression , ")" , "{" , { statement } , "}" ;
+
+return_statement = "return" , expression , ";" ;
+statement = if_statement | while_statement | variable_definition | assignment | return_statement ;
+
+type = "int" | "double" | "complex" | "string" ;
+letter = "A" | ... | "Z" | "a" | ... | "z" ;
+digit = "0" | ... | "9" ;
+character = ? wszystkie znaki ASCII ? ;
+integer = digit , { digit } ;
+double = integer , "." , [ integer ] ;
+complex = ( double | integer ) , ( "+" | "-" ) , ( double | integer ) , "i" ;
+number = integer | double | complex ;
+string = '"' , { character - '"' } , '"' ;
+identifier = ( letter | "_" ) , { letter | digit | "_" } ;
+relational_operator = "==" | "!=" | "<" | "<=" | ">" | ">=" ;

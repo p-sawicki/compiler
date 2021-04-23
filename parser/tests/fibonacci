@@ -1,0 +1,20 @@
+fun printi : int (i: int);
+
+fun fib : int (n: int) {
+    if (n < 2) {
+        return 0;
+    }
+    if (n == 2) {
+        return 1;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+fun main : int () {
+    int i = 1;
+    while (i <= 10) {
+        int res = printi(fib(i));
+        i = i + 1;
+    }
+    return 0;
+}

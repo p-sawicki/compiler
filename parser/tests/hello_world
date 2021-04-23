@@ -1,0 +1,6 @@
+fun printf : int (s: string);
+
+fun main : int () {
+    int res = printf("Hello world!\n");
+    return 0;
+}

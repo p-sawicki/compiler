@@ -1,0 +1,19 @@
+fun printd : int (d: double);
+
+fun main : int () {
+    double a = 1;
+    double b = 2 * 2.5;
+    double c = 2.0 - 1;
+    complex d = 1 + 1. + 2i;
+    complex e = 2i / 1.i;
+
+    int res = printd(a);
+    res = printd(b);
+    res = printd(c);
+    res = printd(Re(d));
+    res = printd(Im(d));
+    res = printd(Re(e));
+    res = printd(Im(e));
+
+    return 0;
+}

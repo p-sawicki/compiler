@@ -1,0 +1,18 @@
+fun printi : int(i: int);
+
+int x = 1;
+
+fun main : int () {
+  int res = printi(x);
+  int x = 3;
+  if (1 != 0) {
+    int x = 5;
+    if (3 == 3) {
+      int x = 7;
+      x = printi(x);
+    }
+    x = printi(x);
+  }
+  x = printi(x);
+  return 0;
+}

@@ -1,0 +1,15 @@
+fun printd : int (d: double);
+
+fun main : int () {
+    int i = 3;
+    double d = 4.2;
+    if (|i| != |-i| or |d| != |-d| or |1 + 2i| != |-1 - 2i|) {
+        int res = printd(1);
+    }
+
+    i = printd(|-2|);
+    i = printd(|-3.45|);
+    i = printd(|-3 + 4i|);
+
+    return 0;
+}

@@ -1,0 +1,18 @@
+fun printi : int (i: int);
+
+int global = 1;
+
+fun modifyGlobal : int () {
+    global = 420;
+    return 0;
+}
+
+fun main : int () {
+    int res = printi(global);
+
+    res = modifyGlobal();
+
+    res = printi(global);
+
+    return res;
+}
